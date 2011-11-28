@@ -3,7 +3,7 @@
 
     <string name="hello">Hello World, DailySentenceWidgetActivity!</string>
     <string name="app_name">DailySentenceWidget</string>
-    <string name="widget_name">-每日英语（沪江）</string>
+    <string name="widget_name">^_^每日英语</string>
     <string name="btn_restart">重试</string>
 
 </resources>

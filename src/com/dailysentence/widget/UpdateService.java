@@ -86,6 +86,7 @@ public class UpdateService extends Service {
 			String date) {
 		AppWidgetManager awm = AppWidgetManager.getInstance(context);
 		String sentence = null;
+		boolean success = true;
 		String trans = null;
 		String sentencepoint = null;
 		SimpleDateFormat oldformatter = new SimpleDateFormat ("yyyyMMdd");
@@ -114,10 +115,13 @@ public class UpdateService extends Service {
 				e.getStackTrace();
 			}
 		} else {
+			success = false;
 			sentence = "     获取数据失败";
 			trans = " 请检查网络连接或者时间设置是否正确。";
-			sentencepoint = "";
+			sentencepoint = "数据源自沪江网 BY ChineseTiger";
+			str_date = "\n http://weibo.com/chinesetiger";
 			btn_restart.findViewById(R.id.btn_restart);
+			
 			views.setViewVisibility(R.id.btn_restart, Button.VISIBLE);
 
 			Intent service = new Intent(context, UpdateService.class);
@@ -133,7 +137,7 @@ public class UpdateService extends Service {
 		views.setTextViewText(R.id.trans, trans);
 		views.setTextViewText(R.id.sentencepoint, "句子要点：\n" + sentencepoint);
 		views.setTextViewText(R.id.date, (CharSequence) str_date);
-		views.setViewVisibility(R.id.btn_restart, Button.GONE);
+		if(success) views.setViewVisibility(R.id.btn_restart, Button.GONE);
 		awm.updateAppWidget(new ComponentName(context, DailyWidget.class),
 				views);
 		setNextStartAlarm(context);
