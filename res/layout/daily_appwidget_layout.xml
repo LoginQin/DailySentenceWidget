@@ -2,14 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_margin="1dp" >
+    android:layout_margin="1dp" 
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/yellow_bg"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:gravity="center_vertical"
+        android:padding="8dp" >
 
         <TextView
             android:id="@+id/sentence"
@@ -17,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_marginLeft="1dp"
-            android:text="sentence"
+            android:text="数据载入中..."
             android:textColor="#000"
             android:textSize="14dp"
             android:textStyle="bold"
@@ -29,7 +31,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:gravity="right"
-            android:text="translate"
             android:textColor="#047504"
             android:textSize="13dp"
             android:textStyle="italic" />
@@ -39,7 +40,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="sentence point"
             android:textColor="#073af7"
             android:textSize="13dp" />
          <Button 
@@ -59,7 +59,6 @@
             android:layout_margin="1dp"
             android:layout_marginTop="3dp"
             android:gravity="bottom|right"
-            android:text="date"
             android:textColor="#0f0f0f"
             android:textSize="11dp" />
 
