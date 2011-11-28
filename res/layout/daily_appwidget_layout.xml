@@ -2,12 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_margin="0dp" >
+    android:layout_margin="1dp" >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="146dp"
-        android:background="@drawable/black_sky"
+        android:layout_height="160dp"
+        android:background="@drawable/yellow_bg"
         android:orientation="vertical"
         android:padding="10dp" >
 
@@ -15,23 +15,24 @@
             android:id="@+id/sentence"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="1dp"
             android:text="sentence"
+            android:textColor="#000"
+            android:textSize="14dp"
             android:textStyle="bold"
-            android:textColor="#0090ff"
-            android:textSize="14dp" />
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/trans"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="translate"
-            android:textStyle="italic"
-            android:textColor="#000"
             android:gravity="right"
-            android:textSize="13dp" />
+            android:text="translate"
+            android:textColor="#047504"
+            android:textSize="13dp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/sentencepoint"
@@ -39,17 +40,29 @@
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:text="sentence point"
-            android:textColor="#067313"
+            android:textColor="#073af7"
             android:textSize="13dp" />
-                <TextView
+         <Button 
+            android:id="@+id/btn_restart"
+            android:visibility="gone"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="@string/btn_restart"
+            android:textSize="12dp"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"/>
+
+        <TextView
             android:id="@+id/date"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:gravity="right"
+            android:layout_marginTop="3dp"
+            android:gravity="bottom|right"
             android:text="date"
-            android:textColor="#626362"
+            android:textColor="#0f0f0f"
             android:textSize="11dp" />
+
     </LinearLayout>
 
 </FrameLayout>
