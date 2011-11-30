@@ -1,22 +1,15 @@
 package com.dailysentence.widget;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-//import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.util.Log;
-
-//import android.util.Log;
 
 public class DataSource {
 	private final String UPDATE_URI_PRE= "http://bulo.yeshj.com/app/api/mobile_BuloDaySentence.ashx?userid=8874421";
@@ -42,12 +35,12 @@ public class DataSource {
 	}
 
     
-    public JSONObject getRemoteJSONdata(String uri) throws IOException {
+    public JSONObject getRemoteJSONdata(String uri) throws Exception {
     	JSONObject jsonObject = null;
     	HttpClient client = new DefaultHttpClient();
     	StringBuilder builder = new StringBuilder();
     	HttpGet myget = new HttpGet(uri);
-    	try {
+    	//try {
     		HttpResponse response = client.execute(myget);
     		BufferedReader reader = new BufferedReader(new InputStreamReader(
     		response.getEntity().getContent()));
@@ -63,10 +56,10 @@ public class DataSource {
 //    		Log.v("url response", "true="+sentence);
 //    		Log.v("url response", "true="+trans);
 //    		Log.v("url response", "true="+audio);
-    	} catch (Exception e) {
-    		Log.v("url response", "false");
-    		e.printStackTrace();
-    	}
+   // 	} catch (Exception e) {
+    //		Log.v("url response", "false");
+    //		e.printStackTrace();
+    //	}
     		Log.d("DataSource", "builder"+builder.toString());
 		return  jsonObject;
     }

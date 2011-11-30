@@ -1,12 +1,9 @@
 package com.dailysentence.widget;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 import org.json.JSONObject;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -38,10 +35,21 @@ public class UpdateService extends Service {
 
 		// requestUpdate(manager.getAppWidgetIds(new ComponentName(this,
 		// MedAppWidget.class)));
-		// AppWidgetManager awm = AppWidgetManager.getInstance(this);
-		// RemoteViews views = new RemoteViews(this.getPackageName(),
-		// R.layout.daily_appwidget_layout);
-		if (ids.length >= 1) { //判断widget id数目如果为0，关闭定时器
+
+		if (ids.length >= 1) { // 判断widget id数目如果为0，关闭定时器
+
+			// ---无论什么情况下打开服务，只要服务启动，把restart_btn直接gone掉，否则联网失败后，用户会多次按下restart_btn
+			// ---显示提示
+			AppWidgetManager am = AppWidgetManager.getInstance(this);
+			RemoteViews views = new RemoteViews(this.getPackageName(),
+					R.layout.daily_appwidget_layout);
+			views.setViewVisibility(R.id.btn_restart, Button.GONE);
+			views.setTextViewText(R.id.sentencepoint, "    正在获取信息...");
+			views.setTextViewText(R.id.sentence, "^_^每日英语");
+			views.setTextViewText(R.id.trans, "");
+			am.updateAppWidget(new ComponentName(this, DailyWidget.class),
+					views);
+
 			DataSource currData = new DataSource();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 			Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
@@ -115,8 +123,8 @@ public class UpdateService extends Service {
 		if (jsonObject != null) {
 			try {
 				sentence = jsonObject.getString("sentence");
-				sentence = sentence.replace("][", "] [");
-				// sentence = sentence.replace("]", "");
+				sentence = sentence.replace("[", "");
+				sentence = sentence.replace("]", " ");
 
 				trans = jsonObject.getString("trans");
 				sentencepoint = jsonObject.getString("sentencepoint");
@@ -127,6 +135,7 @@ public class UpdateService extends Service {
 			} catch (Exception e) {
 				Log.d("widget_onUpdate", "error  json2");
 				e.getStackTrace();
+				e.fillInStackTrace();
 			}
 		} else {
 			success = false;

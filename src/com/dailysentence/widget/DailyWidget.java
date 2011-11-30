@@ -1,22 +1,9 @@
 package com.dailysentence.widget;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.json.JSONObject;
-
-import android.app.Activity;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RemoteViews;
-import android.widget.Toast;
 
 public class DailyWidget extends AppWidgetProvider {
 

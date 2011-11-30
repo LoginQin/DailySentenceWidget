@@ -12,6 +12,7 @@
         android:background="@drawable/yellow_bg"
         android:orientation="vertical"
         android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
         android:padding="8dp" >
 
         <TextView
@@ -20,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_marginLeft="1dp"
-            android:text="数据载入中..."
+            android:text="@string/widget_name"
             android:textColor="#000"
             android:textSize="14dp"
             android:textStyle="bold"
@@ -41,7 +42,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:textColor="#073af7"
+            android:textColor="#073af7"    
+            android:text="    正在获取信息..."
             android:textSize="13dp" />
          <Button 
             android:id="@+id/btn_restart"
@@ -57,8 +59,9 @@
             android:id="@+id/date"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="1dp"
             android:gravity="bottom|right"
             android:textColor="#0f0f0f"
             android:textSize="11dp" />
