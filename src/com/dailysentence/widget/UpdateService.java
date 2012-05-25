@@ -128,15 +128,16 @@ public class UpdateService extends Service {
 
 				trans = jsonObject.getString("trans");
 				sentencepoint = jsonObject.getString("sentencepoint");
-				int end = sentencepoint.lastIndexOf("AaronKraft");
+				int end = sentencepoint.lastIndexOf("Aaron Kraft");
 				if (end > 0) {
-					sentencepoint = sentencepoint.substring(0, sentencepoint.lastIndexOf("AaronKraft"));
+					sentencepoint = sentencepoint.substring(0, sentencepoint.lastIndexOf("Aaron Kraft"));
 				} else {
 					end = sentencepoint.lastIndexOf("iPhone");
 					if (end > 0)
 						sentencepoint = sentencepoint.substring(0, sentencepoint.lastIndexOf("iPhone"));
 				}
-				sentencepoint = sentencepoint.replace("{br}{br}", "");
+				//sentencepoint = sentencepoint.replace("{br}{br}", "{br}");
+				sentencepoint = sentencepoint.replaceFirst("\\{br\\}\\{br\\}", "{br}");
 				sentencepoint = sentencepoint.replace("{br}", "\n");
 				updatetime = oldformatter.parse(date.toString());
 				str_date = newformatter.format(updatetime);
